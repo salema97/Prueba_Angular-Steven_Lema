@@ -1,0 +1,6 @@
+.menu_selected {
+  color: #000000;
+  &.active {
+    color: rgb(168, 25, 25);
+  }
+}
