@@ -1,13 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from './shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'Prueba_Angular-Steven_Lema';
+export class AppComponent implements OnInit {
+  constructor(private cartService: ShoppingCartService) {}
+  ngOnInit(): void {
+    const cartId = localStorage.getItem('cart_id');
+    if (cartId) {
+      this.cartService.getCart(cartId).subscribe({
+        next: () => {
+          console.log('initialCart');
+        },
+        error: err => {
+          console.error(err);
+        },
+      });
+    }
+  }
+  title = 'Prueba Angular - Steven Lema';
 }
