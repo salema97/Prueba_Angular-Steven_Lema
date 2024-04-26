@@ -235,7 +235,7 @@
 
 .drift-zoom-pane-loader:before,
 .drift-zoom-pane-loader:after {
-  content: "";
+  content: '';
   display: block;
   width: 20px;
   height: 20px;
