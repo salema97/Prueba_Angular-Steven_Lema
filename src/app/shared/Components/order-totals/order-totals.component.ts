@@ -1,0 +1,16 @@
+import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.service';
+import { Observable } from 'rxjs';
+import { ICartTotals } from '../../Cart';
+
+@Component({
+  selector: 'app-order-totals',
+  templateUrl: './order-totals.component.html',
+})
+export class OrderTotalsComponent implements OnInit {
+  cartTotal$!: Observable<ICartTotals>;
+  constructor(private cartService: ShoppingCartService) {}
+  ngOnInit(): void {
+    this.cartTotal$ = this.cartService.cartTotal$;
+  }
+}
