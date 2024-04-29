@@ -1,17 +1,18 @@
 <div class="   {{ products.categoryName }} ">
-  <div class="product discount product_filter border-right-0">
-    <div class="product_image">
+  <div
+    class="product discount product_filter border"
+    style="height: 264px; width: 200px">
+    <div class="product_image p-3">
       <img
         routerLink="/shop/{{ products.id }}"
         src="{{ products.picture }}"
-        style="max-height: 245px"
         alt="{{ products.name }}" />
     </div>
     <div class="product_info">
       <h6 class="product_name">
         <a routerLink="/shop/{{ products.id }}">{{ products.name }}</a>
       </h6>
-      <div class="product_price">${{ products.price }}</div>
+      <div class="product_price">${{ products.price | number: '1.2-2' }}</div>
     </div>
   </div>
   <div class="red_button add_to_cart_button">

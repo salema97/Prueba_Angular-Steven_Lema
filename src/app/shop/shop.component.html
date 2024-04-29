@@ -91,7 +91,10 @@
           </div>
         </div>
         <div class="row product-grid">
-          <div class="product-item mx-2" *ngFor="let item of products">
+          <div
+            class="product-item mx-2"
+            style="height: 264px; width: 200px"
+            *ngFor="let item of products">
             <app-shops-item [products]="item"></app-shops-item>
           </div>
         </div>

@@ -8,9 +8,9 @@
         <tr>
           <th scope="col"></th>
           <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Subtotal</th>
+          <th class="text-center" scope="col">Precio</th>
+          <th class="text-center" scope="col">Cantidad</th>
+          <th class="text-center" scope="col">Subtotal</th>
         </tr>
       </thead>
       <tbody *ngFor="let item of cart.cartItems">
@@ -32,7 +32,7 @@
               <span
                 style="
                   height: 80px;
-                  width: 250px;
+                  width: auto;
                   text-align: left;
                   display: table-cell;
                   vertical-align: middle;
@@ -46,14 +46,14 @@
             >
           </td>
 
-          <th>{{ item.price | currency }}</th>
-          <td>
+          <th class="text-center">{{ item.price | currency }}</th>
+          <td class="text-center">
             <i
               (click)="decrementCartItemQuantity(item)"
               class="fa fa-minus-square"
               style="color: red"
               aria-hidden="true"></i>
-            <span style="font-size: 16px; font-weight: bold">
+            <span class="px-2" style="font-size: 16px; font-weight: bold">
               {{ item.quantity }}
             </span>
             <i
@@ -62,7 +62,7 @@
               style="color: red"
               aria-hidden="true"></i>
           </td>
-          <td>
+          <td class="text-center">
             <strong>{{ item.price * item.quantity | currency }} </strong>
           </td>
         </tr>
@@ -71,9 +71,9 @@
   </div>
   <div class="row">
     <div class="col-6"></div>
-    <div class="col-6">
+    <div class="col-6 text-center">
       <app-order-totals></app-order-totals>
-      <a routerLink="/checkout" class="btn btn-outline-success"> pagar </a>
+      <a routerLink="/checkout" class="btn btn-outline-success px-4"> pagar </a>
     </div>
   </div>
 </div>

@@ -9,17 +9,17 @@
   <ul class="list-unstyled mb-4" *ngIf="cartTotal$ | async">
     <li class="d-flex justify-content-between border-bottom py-3">
       <strong class="text-muted">Subtotal del pedido</strong>
-      <strong>{{ (cartTotal$ | async)?.subtotal | currency }}</strong>
+      <strong>{{ (cartTotal$ | async)?.subtotal | number: '1.2-2' }}</strong>
     </li>
 
     <li class="d-flex justify-content-between border-bottom py-3">
       <strong class="text-muted">Envío</strong>
-      <strong>{{ (cartTotal$ | async)?.shipping | currency }}</strong>
+      <strong>{{ (cartTotal$ | async)?.shipping | number: '1.2-2' }}</strong>
     </li>
 
     <li class="d-flex justify-content-between border-bottom py-3">
       <strong class="text-muted">Total</strong>
-      <strong>{{ (cartTotal$ | async)?.total | currency }}</strong>
+      <strong>{{ (cartTotal$ | async)?.total | number: '1.2-2' }}</strong>
     </li>
   </ul>
 </div>

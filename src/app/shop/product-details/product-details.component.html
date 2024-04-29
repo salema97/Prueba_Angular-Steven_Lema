@@ -9,7 +9,7 @@
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>
         </div>
-        <div class="product_price">${{ product.price }}</div>
+        <div class="product_price">${{ product.price | number: '1.2-2' }}</div>
         <ul class="star_rating">
           <li><i class="fa fa-star" aria-hidden="true"></i></li>
           <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -19,8 +19,8 @@
         </ul>
         <div
           class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-          <span>Quantity:</span>
-          <div class="quantity_selector">
+          <span>Cantidad:</span>
+          <div class="quantity_selector mx-3">
             <span class="minus"
               ><i
                 (click)="decrementQuantity()"
@@ -35,11 +35,9 @@
                 aria-hidden="true"></i
             ></span>
           </div>
-          <div class="red_button" style="width: 140px">
+          <div class="red_button" style="width: 160px">
             <a (click)="addItemToCart()">añadir al carrito</a>
           </div>
-          <div
-            class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
         </div>
       </div>
     </div>
