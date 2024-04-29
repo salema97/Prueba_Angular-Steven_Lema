@@ -1,5 +1,5 @@
-<div class="   {{ products.categoryName }}  ">
-  <div class="product discount product_filter">
+<div class="   {{ products.categoryName }} ">
+  <div class="product discount product_filter border-right-0">
     <div class="product_image">
       <img
         routerLink="/shop/{{ products.id }}"
@@ -7,8 +7,6 @@
         style="max-height: 245px"
         alt="{{ products.name }}" />
     </div>
-    <div class="favorite favorite_left"></div>
-
     <div class="product_info">
       <h6 class="product_name">
         <a routerLink="/shop/{{ products.id }}">{{ products.name }}</a>
@@ -17,6 +15,6 @@
     </div>
   </div>
   <div class="red_button add_to_cart_button">
-    <a routerLink="/cart" (click)="addItemToCart()">add to cart</a>
+    <a routerLink="/cart" (click)="addItemToCart()">añadir al carrito</a>
   </div>
 </div>

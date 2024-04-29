@@ -15,9 +15,9 @@ export class ShopComponent implements OnInit {
   @ViewChild('search') searchTerms!: ElementRef;
   ShopParams = new ShopParams();
   soreOptions = [
-    { name: 'Name', value: 'Name' },
-    { name: 'Price : Low to High', value: 'PriceAsc' },
-    { name: 'Price : high to low', value: 'PriceDesc' },
+    { name: 'Nombre', value: 'Name' },
+    { name: 'Precio de mayor a menor', value: 'PriceDesc' },
+    { name: 'Precio de menor a mayor', value: 'PriceAsc' },
   ];
 
   constructor(private shopService: ShopService) {}
@@ -35,7 +35,7 @@ export class ShopComponent implements OnInit {
   }
   getCategories() {
     this.shopService.getCategories().subscribe(res => {
-      this.categories = [{ id: 0, name: 'All', description: '' }, ...res];
+      this.categories = [{ id: 0, name: 'Todas', description: '' }, ...res];
     });
   }
   onCategorySelect(categoryId: number) {

@@ -1,22 +1,21 @@
 <div class="sidebar">
   <div class="sidebar_section">
     <div class="sidebar_title">
-      <h5>Product Category</h5>
+      <h5>Categorías</h5>
     </div>
     <ul class="sidebar_categories">
       <li
         *ngFor="let item of categories"
         [class.active]="item.id === ShopParams.categoryId"
         [value]="item.id"
-        (click)="onCategorySelect(item.id)"
-      >
+        (click)="onCategorySelect(item.id)">
         <a style="cursor: pointer">{{ item.name }}</a>
       </li>
     </ul>
   </div>
   <div class="sidebar_section">
     <div class="sidebar_title">
-      <h5>Search</h5>
+      <h5>Buscar</h5>
     </div>
     <div class="input-group">
       <input
@@ -24,10 +23,9 @@
         (keyup.enter)="onSearchInput()"
         #search
         class="form-control"
-        placeholder="Product name"
+        placeholder="Producto"
         aria-label="Recipient's username"
-        aria-describedby="basic-addon2"
-      />
+        aria-describedby="basic-addon2" />
     </div>
     <div style="text-align: center; padding-top: 1px">
       <button
@@ -35,48 +33,51 @@
         (click)="onSearch(search.value)"
         style="height: 30px"
         class="filter_button"
-        data-mdb-ripple-init
-      >
-        <span> <i class="fa fa-search"></i> Search </span>
+        data-mdb-ripple-init>
+        <span> <i class="fa fa-search"></i> Buscar </span>
       </button>
     </div>
   </div>
   <div class="sidebar_section">
     <div class="sidebar_title">
-      <h5>Filter by Price</h5>
+      <h5>Filtrar por precio</h5>
     </div>
     <p>
       <input
         type="text"
         id="amount"
         readonly
-        style="border: 0; color: #f6931f; font-weight: bold"
-      />
+        style="border: 0; color: #f6931f; font-weight: bold" />
     </p>
     <div id="slider-range"></div>
-    <div class="filter_button"><span>filter</span></div>
+    <div class="filter_button"><span>Filtrar</span></div>
   </div>
 </div>
 <div class="main_content">
   <div class="products_iso">
     <div class="row">
       <div class="col">
-        <div class="product_sorting_container product_sorting_container_top">
-          <select class="product_sorting box" (change)="onSortSelected($event)">
-            <option *ngFor="let item of soreOptions" [value]="item.value">
-              {{ item.name }}
-            </option>
-          </select>
+        <div
+          class="product_sorting_container product_sorting_container_top h-auto">
+          <div class="row">
+            <h5 class="flex-row align-items-center mr-2 mb-0">Ordenar por:</h5>
+            <select
+              class="product_sorting box"
+              (change)="onSortSelected($event)">
+              <option *ngFor="let item of soreOptions" [value]="item.value">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
           <ul class="product_sorting"></ul>
           <div class="pages d-flex flex-row align-items-center">
-            <span class="showing_results"
-              >Showing
+            <span class="showing_results mr-2">
+              Mostrando
               {{ (ShopParams.pageNumber - 1) * (ShopParams.pageSize + 1) }}–{{
                 ShopParams.pageNumber * ShopParams.pageSize
               }}
-              of {{ ShopParams.totalCount }} results</span
-            >
-
+              de {{ ShopParams.totalCount }} resultados
+            </span>
             <pagination
               (pageChanged)="onPageChanged($event.page)"
               [itemsPerPage]="ShopParams.pageSize"
@@ -85,13 +86,12 @@
               previousText="&lsaquo;"
               nextText="&rsaquo;"
               firstText="&laquo;"
-              lastText="&raquo;"
-            >
+              lastText="&raquo;">
             </pagination>
           </div>
         </div>
         <div class="row product-grid">
-          <div class="product-item" *ngFor="let item of products">
+          <div class="product-item mx-2" *ngFor="let item of products">
             <app-shops-item [products]="item"></app-shops-item>
           </div>
         </div>

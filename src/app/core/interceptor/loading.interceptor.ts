@@ -2,7 +2,6 @@ import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpInterceptorFn,
   HttpRequest,
 } from '@angular/common/http';
 import { LoaderService } from '../../services/loader.service';

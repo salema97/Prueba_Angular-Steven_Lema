@@ -1,5 +1,5 @@
 <div *ngIf="(Cart$ | async) === null">
-  <h3>There Is no item added !</h3>
+  <h3>No hay ningún artículo añadido.</h3>
 </div>
 <div *ngIf="Cart$ | async as cart">
   <div class="row">
@@ -7,10 +7,10 @@
       <thead class="table-light">
         <tr>
           <th scope="col"></th>
-          <th scope="col">Product</th>
-          <th scope="col">Price</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">SubTotal</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
         </tr>
       </thead>
       <tbody *ngFor="let item of cart.cartItems">
@@ -73,7 +73,7 @@
     <div class="col-6"></div>
     <div class="col-6">
       <app-order-totals></app-order-totals>
-      <a routerLink="/checkout" class="btn btn-outline-success"> checkout </a>
+      <a routerLink="/checkout" class="btn btn-outline-success"> pagar </a>
     </div>
   </div>
 </div>

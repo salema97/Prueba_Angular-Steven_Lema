@@ -8,26 +8,26 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
+  { path: '', component: HomeComponent, data: { breadcrumb: 'Inicio' } },
   {
     path: 'not-found',
     component: NotFoundComponent,
-    data: { breadcrumb: 'Not Found' },
+    data: { breadcrumb: 'No se ha encontrado' },
   },
   {
     path: 'server-error',
     component: ServerErrorComponent,
-    data: { breadcrumb: 'Server Error' },
+    data: { breadcrumb: 'Error del servidor' },
   },
   {
     path: 'test-error',
     component: TestErrorComponent,
-    data: { breadcrumb: 'Test Error' },
+    data: { breadcrumb: 'Error de prueba' },
   },
   {
     path: 'shop',
     loadChildren: () => import('./shop/shop.module').then(mo => mo.ShopModule),
-    data: { breadcrumb: 'Shop' },
+    data: { breadcrumb: 'Tienda' },
   },
   {
     path: 'cart',
@@ -35,7 +35,7 @@ const routes: Routes = [
       import('./shopping-cart/shopping-cart.module').then(
         mo => mo.ShoppingCartModule
       ),
-    data: { breadcrumb: 'cart' },
+    data: { breadcrumb: 'Carrito' },
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

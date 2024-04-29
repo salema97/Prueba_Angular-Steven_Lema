@@ -27,13 +27,13 @@ export class TestErrorComponent implements OnInit {
     });
   }
   get400validationError() {
-    this.http.get(this.basePath + 'Bug/Bad-Request').subscribe({
+    this.http.get(this.basePath + 'Bug/bad-request').subscribe({
       next: next => console.info(next),
       error: error => console.error(error),
     });
   }
   get500Error() {
-    this.http.get(this.basePath + 'Bug/Server-error').subscribe({
+    this.http.get(this.basePath + 'Bug/server-error').subscribe({
       next: next => console.info(next),
       error: err => (this.validationError = err.errors),
     });
