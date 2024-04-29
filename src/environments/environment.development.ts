@@ -1,3 +1,3 @@
 export const environment = {
-  baseURL: 'https://localhost:44332/api/',
+  baseURL: 'https://prueba-shop-viamatica.azurewebsites.net/api/',
 };

@@ -3,12 +3,16 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { BehaviorSubject, map } from 'rxjs';
 import { Cart, ICart, ICartItem, ICartTotals } from '../shared/Cart';
-import { IProduct } from '../shared/product';
+import { IProduct } from '../shared/Product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShoppingCartService {
+  writeUser(user: string) {
+    localStorage.setItem('user', user);
+  }
+
   baseURL: string = environment.baseURL;
   private cartSource = new BehaviorSubject<ICart>(null as any);
   cart$ = this.cartSource.asObservable();
@@ -91,7 +95,7 @@ export class ShoppingCartService {
         next: (res: ICart) => {
           this.cartSource.next(res);
           this.calculateTotal();
-          console.log(res);
+          //console.log(res);
         },
         error: err => {
           console.log(err);

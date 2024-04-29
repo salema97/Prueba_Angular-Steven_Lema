@@ -11,6 +11,7 @@ import {
   HttpClient,
   HttpClientModule,
   provideHttpClient,
+  withFetch,
   withInterceptors,
 } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
@@ -19,7 +20,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptor/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbComponent } from 'xng-breadcrumb';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
 
 @NgModule({
@@ -38,9 +39,10 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
     NgxSpinnerModule,
   ],
   providers: [
+    NgxSpinnerService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent],
 })

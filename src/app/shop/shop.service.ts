@@ -5,13 +5,19 @@ import { ICategories } from '../shared/Categories';
 import { response } from 'express';
 import { map } from 'rxjs/operators';
 import { ShopParams } from '../shared/ShopParams';
-import { IProduct } from '../shared/product';
+import { IProduct } from '../shared/Product';
+import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService {
-  baseURL = 'https://localhost:44332/api/';
+  baseURL: string = environment.baseURL;
   constructor(private http: HttpClient) {}
+
+  writeUser(user: string) {
+    localStorage.setItem('user', user);
+  }
+
   getProducts(shopParams: ShopParams) {
     let params = new HttpParams();
     if (shopParams.categoryId != 0) {
@@ -37,7 +43,7 @@ export class ShopService {
   }
   getCategories() {
     return this.http.get<ICategories[]>(
-      this.baseURL + 'Category/get-all-category'
+      this.baseURL + 'Category/get-all-categories'
     );
   }
   getProduct(id: number) {

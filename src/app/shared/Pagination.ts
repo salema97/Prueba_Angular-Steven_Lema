@@ -1,4 +1,4 @@
-import { IProduct } from './product';
+import { IProduct } from './Product';
 
 export interface IPagination {
   pageSize: number;
