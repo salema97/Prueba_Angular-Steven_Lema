@@ -5,7 +5,7 @@ import { ICategories } from '../shared/Categories';
 import { response } from 'express';
 import { map } from 'rxjs/operators';
 import { ShopParams } from '../shared/ShopParams';
-import { IProduct } from '../shared/Product';
+import { IProduct } from '../shared/product';
 import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root',

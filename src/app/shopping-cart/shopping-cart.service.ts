@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { BehaviorSubject, map } from 'rxjs';
 import { Cart, ICart, ICartItem, ICartTotals } from '../shared/Cart';
-import { IProduct } from '../shared/Product';
+import { IProduct } from '../shared/product';
 
 @Injectable({
   providedIn: 'root',
