@@ -56,38 +56,44 @@
 <div class="main_content">
   <div class="products_iso">
     <div class="row">
-      <div class="col">
+      <div class="row">
         <div
-          class="product_sorting_container product_sorting_container_top h-auto">
+          class="product_sorting_container product_sorting_container_top w-100">
           <div class="row">
-            <h5 class="flex-row align-items-center mr-2 mb-0">Ordenar por:</h5>
-            <select
-              class="product_sorting box"
-              (change)="onSortSelected($event)">
-              <option *ngFor="let item of soreOptions" [value]="item.value">
-                {{ item.name }}
-              </option>
-            </select>
-          </div>
-          <ul class="product_sorting"></ul>
-          <div class="pages d-flex flex-row align-items-center">
-            <span class="showing_results mr-2">
-              Mostrando
-              {{ (ShopParams.pageNumber - 1) * (ShopParams.pageSize + 1) }}–{{
-                ShopParams.pageNumber * ShopParams.pageSize
-              }}
-              de {{ ShopParams.totalCount }} resultados
-            </span>
-            <pagination
-              (pageChanged)="onPageChanged($event.page)"
-              [itemsPerPage]="ShopParams.pageSize"
-              [boundaryLinks]="true"
-              [totalItems]="ShopParams.totalCount"
-              previousText="&lsaquo;"
-              nextText="&rsaquo;"
-              firstText="&laquo;"
-              lastText="&raquo;">
-            </pagination>
+            <div class="align-self-center col-md-5">
+              <div class="row">
+                <h5 class="align-self-center mr-2 mb-0">Ordenar por:</h5>
+                <select
+                  class="product_sorting box align-self-center"
+                  (change)="onSortSelected($event)">
+                  <option *ngFor="let item of soreOptions" [value]="item.value">
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-7 text-right">
+              <ul class="list-unstyled"></ul>
+              <div class="d-flex justify-content-end align-items-center">
+                <span class="mr-2 showing_results">
+                  Mostrando
+                  {{
+                    (ShopParams.pageNumber - 1) * (ShopParams.pageSize + 1)
+                  }}–{{ ShopParams.pageNumber * ShopParams.pageSize }} de
+                  {{ ShopParams.totalCount }} resultados
+                </span>
+                <pagination
+                  (pageChanged)="onPageChanged($event.page)"
+                  [itemsPerPage]="ShopParams.pageSize"
+                  [boundaryLinks]="true"
+                  [totalItems]="ShopParams.totalCount"
+                  previousText="&lsaquo;"
+                  nextText="&rsaquo;"
+                  firstText="&laquo;"
+                  lastText="&raquo;">
+                </pagination>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row product-grid">
