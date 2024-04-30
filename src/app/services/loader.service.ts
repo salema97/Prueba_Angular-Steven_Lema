@@ -15,9 +15,9 @@ export class LoaderService {
   load() {
     this.loaderRequestCount++;
     this.spinnerService.show(undefined, {
-      bdColor: 'rgba(215,208,208,0.8)',
-      size: 'medium',
-      color: '#c32d2d',
+      bdColor: 'rgb(136, 136, 136, 0.5)',
+      size: 'large',
+      color: '#fe4c50',
       type: 'ball-atom',
     });
   }

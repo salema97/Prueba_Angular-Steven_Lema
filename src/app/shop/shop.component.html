@@ -9,7 +9,7 @@
         [class.active]="item.id === ShopParams.categoryId"
         [value]="item.id"
         (click)="onCategorySelect(item.id)">
-        <a style="cursor: pointer">{{ item.name }}</a>
+        <a>{{ item.name }}</a>
       </li>
     </ul>
   </div>
@@ -27,11 +27,10 @@
         aria-label="Recipient's username"
         aria-describedby="basic-addon2" />
     </div>
-    <div style="text-align: center; padding-top: 1px">
+    <div class="filter">
       <button
         type="button"
         (click)="onSearch(search.value)"
-        style="height: 30px"
         class="filter_button"
         data-mdb-ripple-init>
         <span> <i class="fa fa-search"></i> Buscar </span>
@@ -43,11 +42,7 @@
       <h5>Filtrar por precio</h5>
     </div>
     <p>
-      <input
-        type="text"
-        id="amount"
-        readonly
-        style="border: 0; color: #f6931f; font-weight: bold" />
+      <input type="text" id="amount" readonly />
     </p>
     <div id="slider-range"></div>
     <div class="filter_button"><span>Filtrar</span></div>
@@ -63,7 +58,7 @@
               <div class="row">
                 <h5 class="align-self-center mr-2 mb-0">Ordenar por:</h5>
                 <select
-                  class="product_sorting box align-self-center"
+                  class="form-select product_sorting box align-self-center"
                   (change)="onSortSelected($event)">
                   <option *ngFor="let item of soreOptions" [value]="item.value">
                     {{ item.name }}

@@ -2,3 +2,18 @@
   height: 380px;
   width: 200px;
 }
+a {
+  cursor: pointer;
+}
+.filter {
+  text-align: center;
+  padding-top: 1px;
+}
+.filter_button {
+  height: 30px;
+}
+#amount {
+  border: 0;
+  color: #f6931f;
+  font-weight: bold;
+}

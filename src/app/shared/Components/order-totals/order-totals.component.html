@@ -1,11 +1,7 @@
-<div class="bg-light text-uppercase py-3 text-center" style="font-weight: bold">
-  Resumen del pedido
-</div>
+<div class="bg-light text-uppercase py-3 text-center">Resumen del pedido</div>
 
 <div class="p-4">
-  <p style="font-style: italic">
-    El valor del envío se añadirá al precio total
-  </p>
+  <p>El valor del envío se añadirá al precio total</p>
   <ul class="list-unstyled mb-4" *ngIf="cartTotal$ | async">
     <li class="d-flex justify-content-between border-bottom py-3">
       <strong class="text-muted">Subtotal del pedido</strong>

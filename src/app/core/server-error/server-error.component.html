@@ -5,8 +5,6 @@
   <div *ngIf="error">
     <h3 class="text-danger">{{ error.message }}</h3>
     <hr />
-    <code class="mt-5" style="background-color: gainsboro">{{
-      error.details
-    }}</code>
+    <code class="code mt-5">{{ error.details }}</code>
   </div>
 </div>

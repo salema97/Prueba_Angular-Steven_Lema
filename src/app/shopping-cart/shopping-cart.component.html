@@ -16,32 +16,15 @@
       <tbody *ngFor="let item of cart.cartItems">
         <tr>
           <th>
-            <span
-              style="
-                height: 80px;
-                width: 20px;
-                text-align: left;
-                display: table-cell;
-                vertical-align: middle;
-              "
+            <span class="remove-item-product"
               ><i (click)="removeCartItem(item)" class="fa fa-times"></i
             ></span>
           </th>
           <td>
             <a routerLink="/shop/{{ item.id }}">
-              <span
-                style="
-                  height: 80px;
-                  width: auto;
-                  text-align: left;
-                  display: table-cell;
-                  vertical-align: middle;
-                ">
-                <img
-                  src="{{ item.picture }}"
-                  style="max-height: 70px"
-                  alt="{{ item.productName }}" />
-                <span style="font-size: 15px"> {{ item.productName }}</span>
+              <span class="image-product">
+                <img src="{{ item.picture }}" alt="{{ item.productName }}" />
+                <span class="name-product"> {{ item.productName }}</span>
               </span></a
             >
           </td>
@@ -50,16 +33,14 @@
           <td class="text-center">
             <i
               (click)="decrementCartItemQuantity(item)"
-              class="fa fa-minus-square"
-              style="color: red"
+              class="modify-items fa fa-minus-square"
               aria-hidden="true"></i>
-            <span class="px-2" style="font-size: 16px; font-weight: bold">
+            <span class="quantity-product px-2">
               {{ item.quantity }}
             </span>
             <i
               (click)="incrementCartItemQuantity(item)"
-              class="fa fa-plus-square"
-              style="color: red"
+              class="modify-items fa fa-plus-square"
               aria-hidden="true"></i>
           </td>
           <td class="text-center">

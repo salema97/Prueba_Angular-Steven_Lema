@@ -39,9 +39,9 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
     NgxSpinnerModule,
   ],
   providers: [
-    NgxSpinnerService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    NgxSpinnerService,
     provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent],

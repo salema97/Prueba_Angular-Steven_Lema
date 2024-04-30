@@ -1,7 +1,7 @@
 <div *ngIf="product">
   <div class="row">
-    <div class="col-lg-5" style="text-align: center">
-      <img src="{{ product.picture }}" style="width: 50%" />
+    <div class="product-image col-lg-5">
+      <img src="{{ product.picture }}" />
     </div>
     <div class="col-lg-7">
       <div class="product_details">
@@ -35,7 +35,7 @@
                 aria-hidden="true"></i
             ></span>
           </div>
-          <div class="red_button" style="width: 160px">
+          <div class="red_button">
             <a (click)="addItemToCart()">añadir al carrito</a>
           </div>
         </div>
