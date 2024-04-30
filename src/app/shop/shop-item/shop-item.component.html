@@ -1,9 +1,8 @@
-<div class="   {{ products.categoryName }} ">
-  <div
-    class="product discount product_filter border"
-    style="height: 264px; width: 200px">
-    <div class="product_image p-3">
+<div class="{{ products.categoryName }}">
+  <div class="product discount product_filter border">
+    <div class="product_image p-3 text-center">
       <img
+        class="img-fluid"
         routerLink="/shop/{{ products.id }}"
         src="{{ products.picture }}"
         alt="{{ products.name }}" />
