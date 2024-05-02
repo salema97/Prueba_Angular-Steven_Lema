@@ -6,24 +6,46 @@
           <div class="top_nav_right">
             <ul class="top_nav_menu">
               <li class="account">
-                <a href="#">
-                  Mi cuenta
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="account_selection">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-sign-in" aria-hidden="true"> </i>Iniciar
-                      sesión
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><i class="fa fa-user-plus" aria-hidden="true"></i
-                      >Regístrese</a
-                    >
-                  </li>
-                </ul>
+                <div *ngIf="(currentUser$ | async) === null">
+                  <a href="#">
+                    Mi cuenta
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="account_selection">
+                    <li>
+                      <a routerLink="/account/login">
+                        <i class="fa fa-sign-in" aria-hidden="true"> </i>Iniciar
+                        sesión
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="/account/register"
+                        ><i class="fa fa-user-plus" aria-hidden="true"></i
+                        >Regístrese</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div *ngIf="currentUser$ | async">
+                  <a href="#">
+                    Bienvenido {{ (currentUser$ | async)?.displayName }}
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="account_selection">
+                    <li>
+                      <a routerLink="cart">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"> </i
+                        >Mi carrito
+                      </a>
+                    </li>
+                    <li>
+                      <a (click)="logout()"
+                        ><i class="fa fa-sign-out" aria-hidden="true"> </i
+                        >Salir</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>
@@ -70,11 +92,6 @@
               routerLink="/cart"
               *ngIf="cart$ | async as cart"
               class="navbar_user">
-              <li>
-                <a routerLink="/cart"
-                  ><i class="fa fa-user" aria-hidden="true"></i
-                ></a>
-              </li>
               <li class="checkout">
                 <a routerLink="/cart">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -102,7 +119,7 @@
     <ul class="menu_top_nav">
       <li class="menu_item has-children">
         <a href="#">
-          My Account
+          Mi cuenta
           <i class="fa fa-angle-down"></i>
         </a>
         <ul class="menu_selection">

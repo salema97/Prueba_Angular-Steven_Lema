@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-12" style="align-items: center">
+    <main class="form-signin">
+      <div class="text-center">
+        <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+          <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+          <div class="form-floating">
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="nombre@email.com" />
+            <div *ngIf="_email?.valid">
+              <small
+                class="test-error"
+                style="font-weight: bold"
+                *ngIf="_email?.errors?.['required']"
+                >Correo electrónico obligatorio</small
+              >
+              <small
+                class="test-error"
+                style="font-weight: bold"
+                *ngIf="_email?.errors?.['pattern']"
+                >Correo electrónico no válido</small
+              >
+            </div>
+          </div>
+          <div style="height: 10px"></div>
+          <div class="form-floating">
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Contraseña" />
+          </div>
+          <div style="height: 10px"></div>
+          <div class="form-floating">
+            <button
+              class="btn btn-danger"
+              style="height: 45px"
+              [disabled]="loginForm.invalid">
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>

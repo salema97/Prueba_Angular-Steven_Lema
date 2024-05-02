@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ShopComponent } from './shop/shop.component';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Inicio' } },
@@ -36,6 +35,18 @@ const routes: Routes = [
         mo => mo.ShoppingCartModule
       ),
     data: { breadcrumb: 'Carrito' },
+  },
+  // {
+  //   path: 'checkout',
+  //   loadChildren: () =>
+  //     import('./checkout/checkout.module').then(mo => mo.CheckoutComponent),
+  //   data: { breadcrumb: 'Pagar' },
+  // },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./account/account.module').then(mo => mo.AccountModule),
+    data: { breadcrumb: { skip: true } },
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -22,9 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbComponent } from 'xng-breadcrumb';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CheckoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,6 +44,7 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     NgxSpinnerService,
     provideHttpClient(withFetch()),
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent],
 })
