@@ -6,7 +6,7 @@ import { ICartTotals } from '../../Cart';
 @Component({
   selector: 'app-order-totals',
   templateUrl: './order-totals.component.html',
-  styleUrls: ['./order-totals.component.scss'],
+  styleUrls: ['./order-totals.component.css'],
 })
 export class OrderTotalsComponent implements OnInit {
   cartTotal$!: Observable<ICartTotals>;

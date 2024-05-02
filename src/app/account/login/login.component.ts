@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       next: () => {
         this.router.navigateByUrl(this.returnUrl);
       },
-      error: error => {
+      error: (error) => {
         console.error(error);
       },
     });

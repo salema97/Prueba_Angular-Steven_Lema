@@ -8,7 +8,7 @@ import { IUser } from '../../shared/User';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
   constructor(

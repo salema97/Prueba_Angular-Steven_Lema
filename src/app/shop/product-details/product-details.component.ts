@@ -8,7 +8,7 @@ import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss',
+  styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent implements OnInit {
   product!: IProduct;
@@ -28,7 +28,7 @@ export class ProductDetailsComponent implements OnInit {
     const id = this.activeRoute.snapshot.paramMap.get('id');
 
     if (id !== null) {
-      this.shopService.getProduct(parseInt(id)).subscribe(res => {
+      this.shopService.getProduct(parseInt(id)).subscribe((res) => {
         this.product = res;
         this.bcService.set('@ProductDetails', res.name);
       });

@@ -7,7 +7,7 @@ import { ShopParams } from '../shared/ShopParams';
 @Component({
   selector: 'app-shops',
   templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss',
+  styleUrl: './shop.component.css',
 })
 export class ShopComponent implements OnInit {
   products!: IProduct[];
@@ -26,7 +26,7 @@ export class ShopComponent implements OnInit {
     this.getCategories();
   }
   getProduct() {
-    this.shopService.getProducts(this.ShopParams).subscribe(res => {
+    this.shopService.getProducts(this.ShopParams).subscribe((res) => {
       this.products = res!.data;
       this.ShopParams.totalCount = res!.pageCount;
       this.ShopParams.pageNumber = res!.pageNumber;
@@ -34,7 +34,7 @@ export class ShopComponent implements OnInit {
     });
   }
   getCategories() {
-    this.shopService.getCategories().subscribe(res => {
+    this.shopService.getCategories().subscribe((res) => {
       this.categories = [{ id: 0, name: 'Todas', description: '' }, ...res];
     });
   }
