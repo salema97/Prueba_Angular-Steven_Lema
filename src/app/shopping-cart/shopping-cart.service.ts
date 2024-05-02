@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { BehaviorSubject, map } from 'rxjs';
 import { Cart, ICart, ICartItem, ICartTotals } from '../shared/Cart';
 import { IProduct } from '../shared/product';
@@ -19,14 +19,14 @@ export class ShoppingCartService {
 
   incrementCartItemQuantity(item: ICartItem) {
     const cart = this.getCurrentCartValue();
-    const itemIndex = cart.cartItems.findIndex(x => x.id === item.id);
+    const itemIndex = cart.cartItems.findIndex((x) => x.id === item.id);
     cart.cartItems[itemIndex].quantity++;
     this.setCart(cart);
   }
 
   decrementCartItemQuantity(item: ICartItem) {
     const cart = this.getCurrentCartValue();
-    const itemIndex = cart.cartItems.findIndex(x => x.id === item.id);
+    const itemIndex = cart.cartItems.findIndex((x) => x.id === item.id);
     if (cart.cartItems[itemIndex].quantity > 1) {
       cart.cartItems[itemIndex].quantity--;
       this.setCart(cart);
@@ -36,8 +36,8 @@ export class ShoppingCartService {
   }
   removeItemFromCart(item: ICartItem) {
     const cart = this.getCurrentCartValue();
-    if (cart.cartItems.some(x => x.id === item.id)) {
-      cart.cartItems = cart.cartItems.filter(x => x.id !== item.id);
+    if (cart.cartItems.some((x) => x.id === item.id)) {
+      cart.cartItems = cart.cartItems.filter((x) => x.id !== item.id);
       if (cart.cartItems.length > 0) {
         this.setCart(cart);
       } else {
@@ -59,7 +59,7 @@ export class ShoppingCartService {
           this.cartTotalSource.next(null as any);
           localStorage.removeItem('cart_id');
         },
-        error: err => {
+        error: (err) => {
           console.log(err);
         },
       });
@@ -97,7 +97,7 @@ export class ShoppingCartService {
           this.calculateTotal();
           //console.log(res);
         },
-        error: err => {
+        error: (err) => {
           console.log(err);
         },
       });
@@ -118,7 +118,7 @@ export class ShoppingCartService {
     ItemToAdd: ICartItem,
     quantity: number
   ): ICartItem[] {
-    const index = cartItems.findIndex(i => i.id === ItemToAdd.id);
+    const index = cartItems.findIndex((i) => i.id === ItemToAdd.id);
     if (index === -1) {
       ItemToAdd.quantity = quantity;
       cartItems.push(ItemToAdd);

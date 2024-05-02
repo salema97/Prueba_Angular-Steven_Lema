@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { ReplaySubject, map, of } from 'rxjs';
 import { IUser } from '../shared/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,10 +14,7 @@ export class AccountService implements OnInit {
   private CurrentUser = new ReplaySubject<IUser>(1);
   currentUser$ = this.CurrentUser.asObservable();
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(values: any) {
     return this.http.post<IUser>(this.baseUrl + 'Account/login', values).pipe(

@@ -6,7 +6,7 @@ import { response } from 'express';
 import { map } from 'rxjs/operators';
 import { ShopParams } from '../shared/ShopParams';
 import { IProduct } from '../shared/product';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -36,7 +36,7 @@ export class ShopService {
         params,
       })
       .pipe(
-        map(response => {
+        map((response) => {
           return response.body;
         })
       );

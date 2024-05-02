@@ -8,7 +8,8 @@
         *ngFor="let item of categories"
         [class.active]="item.id === ShopParams.categoryId"
         [value]="item.id"
-        (click)="onCategorySelect(item.id)">
+        (click)="onCategorySelect(item.id)"
+      >
         <a>{{ item.name }}</a>
       </li>
     </ul>
@@ -25,14 +26,16 @@
         class="form-control"
         placeholder="Producto"
         aria-label="Recipient's username"
-        aria-describedby="basic-addon2" />
+        aria-describedby="basic-addon2"
+      />
     </div>
     <div class="filter">
       <button
         type="button"
         (click)="onSearch(search.value)"
         class="filter_button"
-        data-mdb-ripple-init>
+        data-mdb-ripple-init
+      >
         <span> <i class="fa fa-search"></i> Buscar </span>
       </button>
     </div>
@@ -59,7 +62,8 @@
                 <h5 class="align-self-center mr-2 mb-0">Ordenar por:</h5>
                 <select
                   class="form-select product_sorting box align-self-center"
-                  (change)="onSortSelected($event)">
+                  (change)="onSortSelected($event)"
+                >
                   <option *ngFor="let item of soreOptions" [value]="item.value">
                     {{ item.name }}
                   </option>
@@ -76,7 +80,7 @@
                   }}–{{ ShopParams.pageNumber * ShopParams.pageSize }} de
                   {{ ShopParams.totalCount }} resultados
                 </span>
-                <pagination
+                <!-- <pagination
                   (pageChanged)="onPageChanged($event.page)"
                   [itemsPerPage]="ShopParams.pageSize"
                   [boundaryLinks]="true"
@@ -85,7 +89,7 @@
                   nextText="&rsaquo;"
                   firstText="&laquo;"
                   lastText="&raquo;">
-                </pagination>
+                </pagination> -->
               </div>
             </div>
           </div>
