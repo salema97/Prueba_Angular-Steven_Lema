@@ -1,52 +1,32 @@
-<header class="header trans_300">
+<header class="header trans_300" style="top: 0px">
   <div class="top_nav">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-right">
           <div class="top_nav_right">
             <ul class="top_nav_menu">
-              <li class="account">
-                <div *ngIf="(currentUser$ | async) === null">
-                  <a href="#">
+              <div *ngIf="(currentUser$ | async) === null">
+                <li class="account">
+                  <a href="">
                     Mi cuenta
                     <i class="fa fa-angle-down"></i>
                   </a>
                   <ul class="account_selection">
                     <li>
-                      <a routerLink="/account/login">
-                        <i class="fa fa-sign-in" aria-hidden="true"> </i>Iniciar
-                        sesión
+                      <a href="/account/login">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        Iniciar sesión
                       </a>
                     </li>
                     <li>
-                      <a routerLink="/account/register"
-                        ><i class="fa fa-user-plus" aria-hidden="true"></i
-                        >Regístrese</a
+                      <a href="/account/register">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Regístrese</a
                       >
                     </li>
                   </ul>
-                </div>
-                <div *ngIf="currentUser$ | async">
-                  <a href="#">
-                    Bienvenido {{ (currentUser$ | async)?.displayName }}
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="account_selection">
-                    <li>
-                      <a routerLink="cart">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"> </i
-                        >Mi carrito
-                      </a>
-                    </li>
-                    <li>
-                      <a (click)="logout()"
-                        ><i class="fa fa-sign-out" aria-hidden="true"> </i
-                        >Salir</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
+                </li>
+              </div>
             </ul>
           </div>
         </div>
@@ -59,45 +39,46 @@
       <div class="row">
         <div class="col-lg-12 text-right">
           <div class="logo_container">
-            <a class="py-2" routerLink="/"
-              ><img class="logo" src="/assets/images/logo-angular.png"
-            /></a>
+            <a href="">colo<span>shop</span></a>
           </div>
           <nav class="navbar">
             <ul class="navbar_menu">
               <li>
                 <a
-                  class="menu_selected py-2"
                   routerLink="/"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  >Inicio</a
                 >
+                  Inicio
+                </a>
               </li>
               <li>
                 <a
-                  class="menu_selected py-2"
                   routerLink="/shop"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  >Tienda</a
                 >
+                  Tienda
+                </a>
               </li>
-              <!-- <li><a routerLink="test-error">Test Error</a></li> -->
-              <li><a class="menu_selected py-2" href="#">Páginas</a></li>
-              <li><a class="menu_selected py-2" href="#">Blog</a></li>
-              <li><a class="menu_selected py-2" href="#">Contacto</a></li>
+              <li><a href="">Páginas</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">Contacto</a></li>
             </ul>
-            <ul
-              routerLink="/cart"
-              *ngIf="cart$ | async as cart"
-              class="navbar_user">
-              <li class="checkout">
-                <a routerLink="/cart">
+            <ul class="navbar_user">
+              <li>
+                <a href=""><i class="fa fa-user" aria-hidden="true"></i></a>
+              </li>
+              <li
+                class="checkout"
+                routerLink="/cart"
+                *ngIf="cart$ | async as cart"
+              >
+                <a href="/cart">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <span id="checkout_items" class="checkout_items">{{
-                    cart.cartItems.length
-                  }}</span>
+                  <span id="checkout_items" class="checkout_items">
+                    {{ cart.cartItems.length }}
+                  </span>
                 </a>
               </li>
             </ul>
@@ -110,6 +91,7 @@
     </div>
   </div>
 </header>
+
 <div class="fs_menu_overlay"></div>
 <div class="hamburger_menu">
   <div class="hamburger_close">
@@ -118,28 +100,28 @@
   <div class="hamburger_menu_content text-right">
     <ul class="menu_top_nav">
       <li class="menu_item has-children">
-        <a href="#">
+        <a href="">
           Mi cuenta
           <i class="fa fa-angle-down"></i>
         </a>
         <ul class="menu_selection">
           <li>
-            <a href="#"
+            <a href=""
               ><i class="fa fa-sign-in" aria-hidden="true"></i>Iniciar sesión</a
             >
           </li>
           <li>
-            <a href="#"
+            <a href=""
               ><i class="fa fa-user-plus" aria-hidden="true"></i>Regístrese</a
             >
           </li>
         </ul>
       </li>
-      <li class="menu_item"><a href="#" routerLink="/">Inicio</a></li>
-      <li class="menu_item"><a href="#" routerLink="/shop">Tienda</a></li>
-      <li class="menu_item"><a href="#">Páginas</a></li>
-      <li class="menu_item"><a href="#">Blog</a></li>
-      <li class="menu_item"><a href="#">Contacto</a></li>
+      <li class="menu_item"><a href="">Inicio</a></li>
+      <li class="menu_item"><a href="">Tienda</a></li>
+      <li class="menu_item"><a href="">Páginas</a></li>
+      <li class="menu_item"><a href="">Blog</a></li>
+      <li class="menu_item"><a href="">Contacto</a></li>
     </ul>
   </div>
 </div>

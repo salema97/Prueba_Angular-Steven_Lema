@@ -1,5 +1,24 @@
-<div class="breadcrumbs d-flex flex-row align-items-center">
-  <ul>
-    <li><xng-breadcrumb></xng-breadcrumb></li>
-  </ul>
+<div class="row">
+  <div class="col product_section clearfix">
+    <div class="breadcrumbs d-flex flex-row align-items-center">
+      <ul>
+        <!-- <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li class="active">
+          <a href="index.html">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            Men's
+          </a>
+        </li> -->
+        <li>
+          <xng-breadcrumb separator=">">
+            <ng-container *xngBreadcrumbItem="let breadcrumb">
+              <ng-container>{{ breadcrumb }}</ng-container>
+            </ng-container>
+          </xng-breadcrumb>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

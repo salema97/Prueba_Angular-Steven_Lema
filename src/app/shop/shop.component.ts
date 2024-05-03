@@ -7,7 +7,7 @@ import { ShopParams } from '../shared/ShopParams';
 @Component({
   selector: 'app-shops',
   templateUrl: './shop.component.html',
-  styleUrl: './shop.component.css',
+  styleUrl: './shop.component.scss',
 })
 export class ShopComponent implements OnInit {
   products!: IProduct[];
@@ -65,5 +65,8 @@ export class ShopComponent implements OnInit {
     this.ShopParams.search = this.searchTerms.nativeElement.value;
     console.log(this.ShopParams.search);
     this.getProduct();
+  }
+  firstItemShown(): number {
+    return (this.ShopParams.pageNumber - 1) * (this.ShopParams.pageSize + 1);
   }
 }

@@ -12,17 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(
-    private router: Router,
-    private toast: ToastrService
-  ) {}
+  constructor(private router: Router, private toast: ToastrService) {}
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      catchError(err => {
+      catchError((err) => {
         if (err) {
           if (err.status == 400) {
             if (err.error.errors) {

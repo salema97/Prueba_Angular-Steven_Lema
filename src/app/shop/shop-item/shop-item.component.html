@@ -1,20 +1,14 @@
-<div class="{{ products.categoryName }}">
-  <div class="product discount product_filter border">
-    <div class="product_image p-3 text-center">
-      <img
-        class="img-fluid"
-        routerLink="/shop/{{ products.id }}"
-        src="{{ products.picture }}"
-        alt="{{ products.name }}" />
-    </div>
-    <div class="product_info">
-      <h6 class="product_name">
-        <a routerLink="/shop/{{ products.id }}">{{ products.name }}</a>
-      </h6>
-      <div class="product_price">${{ products.price | number: '1.2-2' }}</div>
-    </div>
+<div class="product product_filter">
+  <div class="product_image">
+    <img src="{{ products.picture }}" alt="" />
   </div>
-  <div class="red_button add_to_cart_button">
-    <a routerLink="/cart" (click)="addItemToCart()">añadir al carrito</a>
+  <div class="product_info">
+    <h6 class="product_name">
+      <a routerLink="/shop/{{ products.id }}">{{ products.name }}</a>
+    </h6>
+    <div class="product_price">${{ products.price | number : "1.2-2" }}</div>
   </div>
+</div>
+<div class="red_button add_to_cart_button ml-0 w-100">
+  <a routerLink="/cart" (click)="addItemToCart()">añadir al carrito</a>
 </div>

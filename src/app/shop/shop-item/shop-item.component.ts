@@ -5,7 +5,7 @@ import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 @Component({
   selector: 'app-shops-item',
   templateUrl: './shop-item.component.html',
-  styleUrl: './shop-item.component.css',
+  styleUrl: './shop-item.component.scss',
 })
 export class ShopItemComponent {
   soreOptions: any;

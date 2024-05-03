@@ -8,7 +8,7 @@ import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css',
+  styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
   product!: IProduct;
