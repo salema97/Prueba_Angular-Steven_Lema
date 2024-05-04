@@ -8,31 +8,35 @@ import { AccountService } from './account/account.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  private isLocalStorageAvailable = typeof localStorage !== 'undefined';
+
   constructor(
     private cartService: ShoppingCartService,
     private accountService: AccountService
   ) {}
 
   ngOnInit(): void {
-    // this.cart();
-    // this.loadCurrentUser();
+    if (this.isLocalStorageAvailable) {
+      this.cart();
+      this.loadCurrentUser();
+    }
   }
 
-  // cart() {
-  //   const cartId = localStorage.getItem('cart_id');
+  cart() {
+    const cartId = localStorage.getItem('cartId');
 
-  //   if (cartId) {
-  //     this.cartService.getCart(cartId).subscribe();
-  //   }
-  // }
+    if (cartId) {
+      this.cartService.getCart(cartId).subscribe();
+    }
+  }
 
-  // loadCurrentUser() {
-  //   const token = localStorage.getItem('token');
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
 
-  //   if (token) {
-  //     this.accountService.loadCurrentUser(token).subscribe;
-  //   }
-  // }
+    if (token) {
+      this.accountService.loadCurrentUser(token).subscribe;
+    }
+  }
 
   title = 'Prueba Angular - Steven Lema';
 }

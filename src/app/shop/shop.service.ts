@@ -14,10 +14,6 @@ export class ShopService {
   baseURL: string = environment.baseURL;
   constructor(private http: HttpClient) {}
 
-  writeUser(user: string) {
-    localStorage.setItem('user', user);
-  }
-
   getProducts(shopParams: ShopParams) {
     let params = new HttpParams();
     if (shopParams.categoryId != 0) {

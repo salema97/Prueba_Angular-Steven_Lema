@@ -9,10 +9,6 @@ import { IProduct } from '../shared/product';
   providedIn: 'root',
 })
 export class ShoppingCartService {
-  writeUser(user: string) {
-    localStorage.setItem('user', user);
-  }
-
   baseURL: string = environment.baseURL;
   private cartSource = new BehaviorSubject<ICart>(null as any);
   cart$ = this.cartSource.asObservable();
@@ -48,7 +44,7 @@ export class ShoppingCartService {
   deleteLocalCart(id: string) {
     this.cartSource.next(null as any);
     this.cartTotalSource.next(null as any);
-    localStorage.removeItem('cart_id');
+    localStorage.removeItem('cartId');
   }
   deleteCart(cart: ICart) {
     return this.http
@@ -57,7 +53,7 @@ export class ShoppingCartService {
         next: () => {
           this.cartSource.next(null as any);
           this.cartTotalSource.next(null as any);
-          localStorage.removeItem('cart_id');
+          localStorage.removeItem('cartId');
         },
         error: (err) => {
           console.log(err);
@@ -130,7 +126,7 @@ export class ShoppingCartService {
 
   private CreateCart(): ICart {
     const cart = new Cart();
-    localStorage.setItem('cart_id', cart.id);
+    localStorage.setItem('cartId', cart.id);
     return cart;
   }
 

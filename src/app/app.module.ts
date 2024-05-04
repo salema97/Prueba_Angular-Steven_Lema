@@ -33,7 +33,7 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
     NgxSpinnerModule,
   ],
   providers: [
-    provideClientHydration(),
+    //provideClientHydration(),
     provideHttpClient(withFetch()),
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

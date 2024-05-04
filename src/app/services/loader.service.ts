@@ -8,10 +8,6 @@ export class LoaderService {
   loaderRequestCount: number = 0;
   constructor(private spinnerService: NgxSpinnerService) {}
 
-  writeUser(user: string) {
-    localStorage.setItem('user', user);
-  }
-
   load() {
     this.loaderRequestCount++;
     this.spinnerService.show(undefined, {
