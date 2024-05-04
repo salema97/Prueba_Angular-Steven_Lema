@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12" style="align-items: center">
-    <main class="form-signin">
+    <main class="form-sign-in">
       <div class="text-center">
         <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
           <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
@@ -9,17 +9,20 @@
               type="email"
               formControlName="email"
               class="form-control"
-              placeholder="nombre@email.com" />
-            <div *ngIf="_email?.valid">
+              placeholder="nombre@email.com"
+              [class.is-invalid]="_email?.invalid && _email?.touched"
+              [class.is-valid]="_email?.valid"
+            />
+            <div *ngIf="_email?.invalid && _email?.touched">
               <small
-                class="test-error"
-                style="font-weight: bold"
+                class="test-danger"
+                style="font-weight: bold; color: red"
                 *ngIf="_email?.errors?.['required']"
                 >Correo electrónico obligatorio</small
               >
               <small
                 class="test-error"
-                style="font-weight: bold"
+                style="font-weight: bold; color: red"
                 *ngIf="_email?.errors?.['pattern']"
                 >Correo electrónico no válido</small
               >
@@ -31,14 +34,24 @@
               type="password"
               formControlName="password"
               class="form-control"
-              placeholder="Contraseña" />
+              placeholder="Contraseña"
+              [class.is-invalid]="_password?.invalid && _password?.touched"
+              [class.is-valid]="_password?.valid"
+            />
+            <small
+              class="test-danger"
+              style="font-weight: bold; color: red"
+              [class.d-none]="_password?.valid || _password?.untouched"
+              >Introduce la contraseña
+            </small>
           </div>
           <div style="height: 10px"></div>
           <div class="form-floating">
             <button
               class="btn btn-danger"
               style="height: 45px"
-              [disabled]="loginForm.invalid">
+              [disabled]="loginForm.invalid"
+            >
               Iniciar sesión
             </button>
           </div>

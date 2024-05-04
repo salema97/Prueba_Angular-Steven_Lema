@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { ReplaySubject, map, of } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, map, of } from 'rxjs';
 import { IUser } from '../shared/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { IAddress } from '../shared/Address';
 @Injectable({
   providedIn: 'root',
 })
-export class AccountService implements OnInit {
+export class AccountService {
   baseUrl = environment.baseURL;
   private CurrentUser = new ReplaySubject<IUser>(1);
   currentUser$ = this.CurrentUser.asObservable();
@@ -50,7 +50,7 @@ export class AccountService implements OnInit {
     );
   }
 
-  loadCurrentUser(token: string) {
+  loadCurrentUser(token: string): Observable<IUser | null> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
 
@@ -67,11 +67,8 @@ export class AccountService implements OnInit {
             localStorage.setItem('token', user.token);
             this.CurrentUser.next(user);
           }
+          return user;
         })
       );
-  }
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 }

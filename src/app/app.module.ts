@@ -19,6 +19,7 @@ import { BreadcrumbComponent } from 'xng-breadcrumb';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ErrorInterceptor } from './core/interceptor/error.interceptor';
 import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
+import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
     provideHttpClient(withFetch()),
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

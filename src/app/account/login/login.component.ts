@@ -20,8 +20,20 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.returnUrl =
+      this.activeRouter.snapshot.queryParams.returnUrl || '/shop';
+    this.CreateLoginForm();
+  }
+
+  CreateLoginForm() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('')]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$'),
+        ],
+      ],
       password: ['', Validators.required],
     });
   }

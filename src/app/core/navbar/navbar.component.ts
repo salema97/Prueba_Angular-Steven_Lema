@@ -16,14 +16,14 @@ export class NavbarComponent implements OnInit {
     private accountService: AccountService
   ) {}
   cart$!: Observable<ICart>;
-  currentUser$!: Observable<IUser | null>;
+  currentUser$!: Observable<IUser>;
 
   ngOnInit(): void {
     this.cart$ = this.cartService.cart$;
     this.currentUser$ = this.accountService.currentUser$;
   }
 
-  logout() {
+  Logout() {
     this.accountService.logout();
   }
 }

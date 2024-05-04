@@ -1,11 +1,10 @@
-import { NgModule, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { CanActivate } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -44,8 +43,9 @@ const routes: Routes = [
   },
   // {
   //   path: 'checkout',
+  //   canActivate: [CanActivate],
   //   loadChildren: () =>
-  //     import('./checkout/checkout.module').then(mo => mo.CheckoutComponent),
+  //     import('./checkout/checkout.module').then((mo) => mo.CheckoutModule),
   //   data: { breadcrumb: 'Pagar' },
   // },
   {

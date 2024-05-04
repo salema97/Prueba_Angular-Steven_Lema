@@ -7,7 +7,7 @@
             <ul class="top_nav_menu">
               <div *ngIf="(currentUser$ | async) === null">
                 <li class="account">
-                  <a href="">
+                  <a>
                     Mi cuenta
                     <i class="fa fa-angle-down"></i>
                   </a>
@@ -22,6 +22,28 @@
                       <a href="/account/register">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                         Regístrese</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div *ngIf="currentUser$ | async">
+                <li class="account">
+                  <a>
+                    {{ (currentUser$ | async)?.displayName }}
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="account_selection">
+                    <li>
+                      <a href="cart">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Mi carrito
+                      </a>
+                    </li>
+                    <li>
+                      <a (click)="Logout()">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Salir</a
                       >
                     </li>
                   </ul>
@@ -66,9 +88,6 @@
               <li><a href="">Contacto</a></li>
             </ul>
             <ul class="navbar_user">
-              <li>
-                <a href=""><i class="fa fa-user" aria-hidden="true"></i></a>
-              </li>
               <li
                 class="checkout"
                 routerLink="/cart"
