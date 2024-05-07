@@ -27,15 +27,26 @@ export class AccountService {
     );
   }
 
+  register(value: any) {
+    return this.http.post<IUser>(this.baseUrl + 'Account/register', value).pipe(
+      map((user: IUser) => {
+        if (user) {
+          localStorage.setItem('token', user.token);
+          this.CurrentUser.next(user);
+        }
+      })
+    );
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.CurrentUser.next(null as any);
     this.router.navigateByUrl('/');
   }
 
-  checkEmailExists(email: string) {
+  checkEmailExist(email: string) {
     return this.http.get(
-      this.baseUrl + 'Account/check-email-exists?email=' + email
+      this.baseUrl + 'Account/check-email-exist?email=' + email
     );
   }
 
