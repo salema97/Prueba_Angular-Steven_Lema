@@ -1,3 +1,3 @@
 export const environment = {
-  baseURL: 'https://prueba-shop-api.azurewebsites.net/api/',
+  baseURL: 'http://api-shop.somee.com/api/',
 };
