@@ -22,3 +22,7 @@
   margin-left: 0px;
   margin-right: 0px;
 }
+
+.product-item::after {
+  width: calc(100% - 2px);
+}

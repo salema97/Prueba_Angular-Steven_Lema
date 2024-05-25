@@ -41,13 +41,13 @@ const routes: Routes = [
       ),
     data: { breadcrumb: 'Carrito' },
   },
-  // {
-  //   path: 'checkout',
-  //   canActivate: [CanActivate],
-  //   loadChildren: () =>
-  //     import('./checkout/checkout.module').then((mo) => mo.CheckoutModule),
-  //   data: { breadcrumb: 'Pagar' },
-  // },
+  {
+    path: 'checkout',
+    canActivate: [CanActivate],
+    loadChildren: () =>
+      import('./checkout/checkout.module').then((mo) => mo.CheckoutModule),
+    data: { breadcrumb: 'Pagar' },
+  },
   {
     path: 'account',
     loadChildren: () =>

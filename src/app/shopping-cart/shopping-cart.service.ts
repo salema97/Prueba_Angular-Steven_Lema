@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, map } from 'rxjs';
-import { Cart, ICart, ICartItem, ICartTotals } from '../shared/Cart';
-import { IProduct } from '../shared/product';
+import { Cart, ICart, ICartItem, ICartTotals } from '../shared/Models/Cart';
+import { IProduct } from '../shared/Models/Product';
+import { IDeliveryMethod } from '../shared/Models/DeliveryMethods';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,12 @@ export class ShoppingCartService {
   baseURL: string = environment.baseURL;
   private cartSource = new BehaviorSubject<ICart>(null as any);
   cart$ = this.cartSource.asObservable();
+  shipping: number = 0;
+
+  setShippingPrice(deliveryMethod: IDeliveryMethod) {
+    this.shipping = deliveryMethod.price;
+    this.calculateTotal();
+  }
 
   incrementCartItemQuantity(item: ICartItem) {
     const cart = this.getCurrentCartValue();
@@ -55,8 +62,8 @@ export class ShoppingCartService {
           this.cartTotalSource.next(null as any);
           localStorage.removeItem('cartId');
         },
-        error: (err) => {
-          console.log(err);
+        error: (error) => {
+          console.log(error);
         },
       });
   }
@@ -91,10 +98,9 @@ export class ShoppingCartService {
         next: (res: ICart) => {
           this.cartSource.next(res);
           this.calculateTotal();
-          //console.log(res);
         },
-        error: (err) => {
-          console.log(err);
+        error: (error) => {
+          console.log(error);
         },
       });
   }

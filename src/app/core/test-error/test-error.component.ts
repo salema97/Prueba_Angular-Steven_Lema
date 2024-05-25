@@ -32,7 +32,7 @@ export class TestErrorComponent {
   get500Error() {
     this.http.get(this.basePath + 'Bug/server-error').subscribe({
       next: (next) => console.info(next),
-      error: (err) => (this.validationError = err.errors),
+      error: (error) => (this.validationError = error.errors),
     });
   }
 }

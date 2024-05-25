@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import { Observable } from 'rxjs';
-import { ICart } from '../../shared/Cart';
+import { ICart } from '../../shared/Models/Cart';
 import { AccountService } from '../../account/account.service';
-import { IUser } from '../../shared/User';
+import { IUser } from '../../shared/Models/User';
 
 @Component({
   selector: 'app-navbar',

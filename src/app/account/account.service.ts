@@ -1,10 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable, ReplaySubject, map, of } from 'rxjs';
-import { IUser } from '../shared/User';
+import { IUser } from '../shared/Models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { IAddress } from '../shared/Address';
+import { IAddress } from '../shared/Models/Address';
 
 @Injectable({
   providedIn: 'root',

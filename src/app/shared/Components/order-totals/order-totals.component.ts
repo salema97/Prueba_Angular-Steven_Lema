@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.service';
 import { Observable } from 'rxjs';
-import { ICartTotals } from '../../Cart';
+import { ICartTotals } from '../../Models/Cart';
 
 @Component({
   selector: 'app-order-totals',

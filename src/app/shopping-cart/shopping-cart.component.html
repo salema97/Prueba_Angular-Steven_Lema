@@ -34,14 +34,16 @@
             <i
               (click)="decrementCartItemQuantity(item)"
               class="modify-items fa fa-minus-square"
-              aria-hidden="true"></i>
+              aria-hidden="true"
+            ></i>
             <span class="quantity-product px-2">
               {{ item.quantity }}
             </span>
             <i
               (click)="incrementCartItemQuantity(item)"
               class="modify-items fa fa-plus-square"
-              aria-hidden="true"></i>
+              aria-hidden="true"
+            ></i>
           </td>
           <td class="text-center">
             <strong>{{ item.price * item.quantity | currency }} </strong>

@@ -19,30 +19,30 @@ export class ErrorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      catchError((err) => {
-        if (err) {
-          if (err.status == 400) {
-            if (err.error.errors) {
-              throw err.error;
+      catchError((error) => {
+        if (error) {
+          if (error.status == 400) {
+            if (error.error.errors) {
+              throw error.error;
             } else {
-              this.toast.error(err.error.massage, err.error.statusCode);
+              this.toast.error(error.error.massage, error.error.statusCode);
             }
           }
-          if (err.status === 401) {
-            this.toast.error(err.error.massage, err.error.statusCode);
+          if (error.status === 401) {
+            this.toast.error(error.error.massage, error.error.statusCode);
           }
-          if (err.status === 404) {
+          if (error.status === 404) {
             //
             this.router.navigateByUrl('/not-found');
           }
-          if (err.status === 500) {
+          if (error.status === 500) {
             const navigationExtra: NavigationExtras = {
-              state: { error: err.error },
+              state: { error: error.error },
             };
             this.router.navigateByUrl('/server-error', navigationExtra);
           }
         }
-        return throwError(() => err.message || '¡Servidor no encontrado!');
+        return throwError(() => error.message || '¡Servidor no encontrado!');
       })
     );
   }
